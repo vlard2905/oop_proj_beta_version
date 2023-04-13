@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.oop_proj.controllers.Constructor">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="In.at">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Info." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Trip">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Edit current company" />
+              <MenuItem mnemonicParsing="false" text="Check schedule" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="374.0" prefWidth="0.0" />
+            <TreeTableView fx:id="CoolDayTable" prefHeight="374.0" prefWidth="598.0">
+              <columns>
+                  <TreeTableColumn fx:id="DayCol" prefWidth="160.8000272512436" text="Day" />
+                <TreeTableColumn fx:id="NameCol" prefWidth="436.7999267578125" text="Name of place" />
+              </columns>
+            </TreeTableView>
+            <Separator orientation="VERTICAL" prefHeight="374.0" prefWidth="0.0" />
+            <VBox prefHeight="374.0" prefWidth="131.0">
+               <children>
+                  <Button fx:id="SDGHButton" mnemonicParsing="false" onAction="#increaseProgressBar" prefHeight="50.0" prefWidth="100.0" text="Save day">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="AddEventButton" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#AddEventButtonClicked" prefHeight="50.0" prefWidth="100.0" text="Add event">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="CDButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Clear day">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="CSButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Clear schedule">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="SSButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Save schedule">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <left>
+      <AnchorPane prefHeight="374.0" prefWidth="59.0" BorderPane.alignment="CENTER">
+         <children>
+            <ProgressBar fx:id="SchedulFullnessBar" layoutX="-129.0" layoutY="202.0" prefHeight="22.0" prefWidth="321.0" progress="0.0" rotate="270.0" AnchorPane.leftAnchor="-129.0" AnchorPane.rightAnchor="-133.0" />
+            <Label fx:id="percentLabel" layoutX="1.0" layoutY="11.0" prefHeight="42.0" prefWidth="53.0" text="0%" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <bottom>
+      <Label fx:id="testLabel" prefHeight="88.0" prefWidth="800.0" wrapText="true" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.oop_proj.controllers.ControllerAddUser">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="In.at">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Info." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Trip">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Edit company" />
+              <MenuItem mnemonicParsing="false" text="Check schedule" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Name:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="NameString">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Sex:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <RadioButton fx:id="MaleRadioBox" mnemonicParsing="false" text="Male">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="sex" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="FemaleRadioBox" mnemonicParsing="false" text="Female" toggleGroup="$sex">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="NonRadioBox" mnemonicParsing="false" text="Non-Binary" toggleGroup="$sex">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="47.0">
+               <children>
+                  <Label text="Age:">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="7.0" left="5.0" right="7.0" top="7.0" />
+                     </padding>
+                  </Label>
+                  <Spinner fx:id="AgeSpinner" editable="true">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Spinner>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Slider fx:id="BudgetSlider" prefHeight="13.0" prefWidth="163.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Slider>
+                  <TextField fx:id="BudgetTextField" prefHeight="26.0" prefWidth="82.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="47.0">
+               <children>
+                  <Label text="Specialities:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <CheckBox fx:id="AllergyCheckBox" mnemonicParsing="false" text="Allergie">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="PetsCheckBox" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" text="Pets">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="ChildrenCheckBox" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" text="Children">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="DisabilitiesCheckBox" layoutX="15.0" layoutY="88.0" mnemonicParsing="false" text="Disabilities">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="LGBTCheckBox" layoutX="15.0" layoutY="125.0" mnemonicParsing="false" text="LGBTQ+">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button fx:id="AddUserButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickOnAddButton" prefHeight="41.0" prefWidth="148.0" text="Add new member" textAlignment="CENTER" wrapText="true">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <textFill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7254902124404907" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.41781833699898224">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6015165939007975">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.7254902124404907" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <VBox prefHeight="415.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="TextContainerOfUsers" prefHeight="167.0" prefWidth="255.0" textFill="#c70000" />
+                  <TextField fx:id="CountField" prefHeight="48.0" prefWidth="82.0">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </TextField>
+                  <Button fx:id="CountButton" mnemonicParsing="false" onAction="#setCountOfUsers" prefHeight="48.0" prefWidth="69.0" text="Count">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+            <Button fx:id="ButtonGoToECC" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="50.0" prefWidth="144.0" text="Go to ECC" textAlignment="CENTER" textFill="#ff11e7">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="250.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
