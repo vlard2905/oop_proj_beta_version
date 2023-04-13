@@ -15,7 +15,7 @@ public class ApplicationInAt extends javafx.application.Application {
         stage.setScene(scene);
         stage.show();
     }
-
+//initial
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         launch();
     }
