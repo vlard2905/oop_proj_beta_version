@@ -1,8 +1,10 @@
 package app.oop_proj.restourants;
 
 import app.oop_proj.Entertainments;
+import app.oop_proj.museums.Museums;
+import javafx.scene.control.Label;
 
-public class FustFood extends Entertainments {
+public class FustFood extends Entertainments implements Restaurants{
     String[] array = {"McDonald's" , "Burger King" , "KFC" , "Subway" , "Five Guys" , "Johnny's Burger Company" , "Jack the Ripperl" ,
             "BURGERISTA" , "Swing Kitchen" , "L'Orient" , "Frittenwerk" , "Bier & Bierli" , "Charlie P's Pub & Dining" , "Ludwig & Adele" , "Kentucky Fried Chicken" , "Oh My Deer" , "The Säulenhalle" , "Brooklyn Burger Bar" ,
             "Flames" , "T.G.I. Fridays" , "Burger Factory" , "Schachtelwirt" , "Cactus Mexican Grill & Bar" , "Boogie's American Burgers" , "Heldenplatz" , "Indian Fast Food" , "Schnitzelwirt" , "Noodle Palace" ,
@@ -40,6 +42,16 @@ public class FustFood extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void checkMenu(Label label) {
+
+    }
+
+    @Override
+    public void checkCousinType(Label label) {
+
     }
 }
 

@@ -1,8 +1,10 @@
 package app.oop_proj.water_entertainments;
 
 import app.oop_proj.Entertainments;
+import app.oop_proj.museums.Museums;
+import javafx.scene.control.Label;
 
-public class Aquapark extends Entertainments {
+public class Aquapark extends Entertainments implements Water_Entertainments{
     String[] array = {"Therme Wien" , "Happyland" , "Kaiserbründl" ,
             "Oberlaa Thermal Baths" , "Dianabad"};
     @Override
@@ -37,6 +39,11 @@ public class Aquapark extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void getSchedule(Label label) {
+
     }
 }
 

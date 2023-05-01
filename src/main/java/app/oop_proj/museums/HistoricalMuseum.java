@@ -1,8 +1,9 @@
 package app.oop_proj.museums;
 
 import app.oop_proj.Entertainments;
+import javafx.scene.control.Label;
 
-public class HistoricalMuseum extends Entertainments {
+public class HistoricalMuseum extends Entertainments implements Museums{
     String[] array = {};
     @Override
     public void setPriceOfEntering() {
@@ -37,5 +38,12 @@ public class HistoricalMuseum extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void readRules(Label label) {
+        MuseumCenter center = new MuseumCenter();
+        center.addSpecialRule("(Special-rule-Historical-Museum)\n");
+        label.setText(center.getGeneralMuseumRules());
     }
 }

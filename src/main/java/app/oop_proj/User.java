@@ -10,7 +10,6 @@ public class User implements Serializable {
     int ageOfUser;
     int budgetOfUser;
     String nameOfUser;
-    History last;
     public void setMale(boolean male) {
         this.male = male;
     }

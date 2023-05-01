@@ -1,9 +1,9 @@
 package app.oop_proj.museums;
 
 import app.oop_proj.Entertainments;
+import javafx.scene.control.Label;
 
-public class ModernArtMuseum extends Entertainments {
-
+public class ModernArtMuseum extends Entertainments implements Museums{
     String[] array = {"Albertina Modern" ,
             "Belvedere 21" ,
             "Essl Museum" ,
@@ -65,5 +65,12 @@ public class ModernArtMuseum extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void readRules(Label label) {
+        MuseumCenter center = new MuseumCenter();
+        center.addSpecialRule("(Special-rule-Modern-Museum)\n");
+        label.setText(center.getGeneralMuseumRules());
     }
 }

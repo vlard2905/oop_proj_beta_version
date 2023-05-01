@@ -1,8 +1,10 @@
 package app.oop_proj.restourants;
 
 import app.oop_proj.Entertainments;
+import app.oop_proj.museums.Museums;
+import javafx.scene.control.Label;
 
-public class DeluxRestourant extends Entertainments {
+public class DeluxRestourant extends Entertainments implements Restaurants{
     String[] array = {"Steirereck" ,
             "Edvard" , "Mörwald Gruppe" , "Silvio Nickol Gourmet Restaurant" , "Konstantin Filippou" ,
             "Le Ciel" , "Tian" , "Konstantin Filippou" , "Blue Mustard" , "Labstelle" , "Restaurant Opus" , "Kussmaul" , "Pichlmaiers Zum Herkner" ,
@@ -43,6 +45,16 @@ public class DeluxRestourant extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void checkMenu(Label label) {
+
+    }
+
+    @Override
+    public void checkCousinType(Label label) {
+
     }
 }
 

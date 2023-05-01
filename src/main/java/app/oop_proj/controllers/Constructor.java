@@ -1,5 +1,8 @@
 package app.oop_proj.controllers;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,8 +19,6 @@ import app.oop_proj.restourants.FustFood;
 import app.oop_proj.water_entertainments.Aquapark;
 import app.oop_proj.water_entertainments.Pool;
 import app.oop_proj.water_entertainments.Sauna;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +26,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import javax.swing.*;
 
@@ -70,7 +70,7 @@ public class Constructor implements Serializable, Initializable {
         System.out.println(tripCharacteristics.toString());*/
         System.out.println("Age:" + company.get(1).getAgeOfUser() +"\nName:"+ company.get(1).getNameOfUser() +"\nMale:"+ company.get(1).isMale() +"\nFemale:"+
                 company.get(1).isFemale() +"\nAllergy:"+ company.get(1).isAllergy() +"\nChild:"+ company.get(1).isChild() +"\nLgbt:"+
-                company.get(1).isLgbt() +"\nPets:"+ company.get(1).isPets() +"\nDisablts:"+ company.get(1).isDisabilities());
+                company.get(1).isLgbt() +"\nPets:"+ company.get(1).isPets() +"\nDisables:"+ company.get(1).isDisabilities());
         System.out.println("City:" + tripCharacteristics.getCity().getCityName() +"Active:" + tripCharacteristics.isActiveTrip()+"Passive:" + tripCharacteristics.isPassiveTrip() +"Time:"+ tripCharacteristics.getTime());
         String data = Arrays.toString(company.toArray()) + tripCharacteristics.toString() + "Age:" + collective.getAgeOfUser() + "Name:"+ collective.getNameOfUser() +"Male:"+ collective.isMale() +"Female:"+
                 collective.isFemale() +"Allergy:"+ collective.isAllergy() +"Child:"+ collective.isChild() +"Lgbt:"+
@@ -128,8 +128,6 @@ public class Constructor implements Serializable, Initializable {
     @FXML
     private Button CSButton;
     @FXML
-    private TreeTableView<String> CoolDayTable;
-    @FXML
     private Button SDGHButton;
     @FXML
     private Button SSButton;
@@ -137,6 +135,8 @@ public class Constructor implements Serializable, Initializable {
     private ProgressBar SchedulFullnessBar;
     @FXML
     private ChoiceBox<String> ChoiceEvent;
+    @FXML
+    private TreeView<String> TreeViewLast;
     @FXML
     private Button ConfirmEvent;
     @FXML
@@ -149,17 +149,10 @@ public class Constructor implements Serializable, Initializable {
         testLabel.setText(printCompany());
         progress += 1.0 / tripCharacteristics.getTime();
         SchedulFullnessBar.setProgress(progress);
-        percentLabel.setText(progress*100 + "%");
+        percentLabel.setText(Math.round(progress * 100) + "%");
     }
     public void AddEventButtonClicked() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationInAt.class.getResource("choicepannel.fxml"));
-        Parent root = fxmlLoader.load(); // Load the FXML file and get the root node
-        Constructor controller = fxmlLoader.getController(); // Get the controller instance
-        controller.initializeChoicePanel(); // Call the method on the controller instance
-        Stage stage = new Stage();
-        Scene scene = new Scene(root, 275, 115);
-        stage.setScene(scene);
-        stage.show();
+
     }
     @FXML
     private TreeTableColumn<String, String> DayCol = new TreeTableColumn<>();
@@ -171,93 +164,43 @@ public class Constructor implements Serializable, Initializable {
         setTripCharacteristics();
         assert tripCharacteristics != null;
         if(tripCharacteristics.isActiveTrip()) {
-            countOfDayEvents = 2;
-        } if(tripCharacteristics.isPassiveTrip()) {
             countOfDayEvents = 4;
+        } if(tripCharacteristics.isPassiveTrip()) {
+            countOfDayEvents = 2;
         }
         return countOfDayEvents;
     }
     double countOfDays = tripCharacteristics.getTime();
-    int counter = 0, counter1 = 0;
+    int counter = 0, Day = 1;
     TreeItem<String > root = new TreeItem<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(int i = 0; i < countOfDays; i++) {
-            TreeItem<String> parent = new TreeItem<>("Day " + i);
-            if (tripCharacteristics.isPassiveTrip()) {
-                for(int j = 0; j < 2; j++) {
-                    TreeItem<String> item = new TreeItem<>("");
-                    parent.getChildren().add(item);
-                }
-            } if (tripCharacteristics.isActiveTrip()) {
-                for(int j = 0; j < 4; j++) {
-                    TreeItem<String> item = new TreeItem<>("");
-                    parent.getChildren().add(item);
-                }
-            }
-            root.getChildren().add(parent);
-            root = parent;
-        }
-
-        DayCol.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
-            String value = param.getValue().getValue();
-            return new SimpleStringProperty(value);
-        });
-
-        /*if (help) {
-            if (counter1 < countOfDays) {
-                parent1 = new TreeItem<>(Double.toString(countOfDays));
-                root.getChildren().add(parent1);
-                help = false;
-                counter1++;
-            } else {
-                JOptionPane.showMessageDialog(null, "Your trip is full!");
-                return;
-            }
-        }
-        if (parent1 != null && counter < countOfDayEvents){
-            TreeItem<String> item = new TreeItem<>(value);
-            parent1.getChildren().add(item);
-            NameCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<String, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<String, String> param) {
-                    return new SimpleStringProperty(param.getValue().getValue());
-                }
-            });
-            counter++;
-        } else {
-            help = true;
-            counter = 0;
-        }
-        CoolDayTable.setShowRoot(false);*/
+        ChoiceEvent.getItems().addAll(getAllAllowed());
     }
-
-    public void setFactor(Entertainments obj){
+    public Entertainments setFactor(Entertainments obj) {
         obj.setFactor_A();
         obj.setFactor_C();
         obj.setFactor_D();
         obj.setFactor_L();
         obj.setFactor_P();
-    }
-    public void initializeChoicePanel() {
-        ChoiceEvent.getItems().addAll(getAllAllowed());
+        return obj;
     }
     public boolean compareObjectConditions(Entertainments attractive, User user) {
-        boolean check = false;
-        if (attractive.isChildrenFactor() == user.isChild()) {
-            check = true;
+        boolean check = true;
+        if (attractive.isChildrenFactor() && user.isChild()) {
+            check = false;
         }
-        if (attractive.isPetsFactor() == user.isPets()) {
-            check = true;
+        if (attractive.isPetsFactor() && user.isPets()) {
+            check = false;
         }
-        if (attractive.isLGBTQ_factor() == user.isLgbt()) {
-            check = true;
+        if (attractive.isLGBTQ_factor() && user.isLgbt()) {
+            check = false;
         }
-        if (attractive.isDisabilitiesFactor() == user.isDisabilities()) {
-            check = true;
+        if (attractive.isDisabilitiesFactor() && user.isDisabilities()) {
+            check = false;
         }
-        if (attractive.isRiskOfAllergy() == user.isAllergy()) {
-            check = true;
+        if (attractive.isRiskOfAllergy() && user.isAllergy()) {
+            check = false;
         }
         return check;
     }
@@ -266,23 +209,23 @@ public class Constructor implements Serializable, Initializable {
         setCollectiveSpecialities();
         AllAllowed.add("Own place");
         ClassicalArtMuseum CAM = new ClassicalArtMuseum();
-        setFactor(CAM);
+        CAM = (ClassicalArtMuseum) setFactor(CAM);
         HistoricalMuseum HM = new HistoricalMuseum();
-        setFactor(HM);
+        HM = (HistoricalMuseum) setFactor(HM);
         ModernArtMuseum MAM = new ModernArtMuseum();
-        setFactor(MAM);
-        DeluxRestourant DR= new DeluxRestourant();
-        setFactor(DR);
+        MAM = (ModernArtMuseum) setFactor(MAM);
+        DeluxRestourant DR = new DeluxRestourant();
+        DR = (DeluxRestourant) setFactor(DR);
         FamilyRestourant FR = new FamilyRestourant();
-        setFactor(FR);
+        FR = (FamilyRestourant) setFactor(FR);
         FustFood FF = new FustFood();
-        setFactor(FF);
+        FF = (FustFood) setFactor(FF);
         Aquapark A = new Aquapark();
-        setFactor(A);
+        A = (Aquapark) setFactor(A);
         Pool P = new Pool();
-        setFactor(P);
+        P = (Pool) setFactor(P);
         Sauna S = new Sauna();
-        setFactor(S);
+        S = (Sauna) setFactor(S);
         if (compareObjectConditions(CAM, collective)){
             AllAllowed.addAll(Arrays.asList(CAM.getArray()));
         }
@@ -313,17 +256,57 @@ public class Constructor implements Serializable, Initializable {
         return AllAllowed.toArray(new String[AllAllowed.size()]);
     }
     String value;
-
-    public String getValueParam() {
-        return value;
-    }
-
-    public void closeChoicePannel() throws IOException {
+    @FXML
+    private Label LabelLast;
+    String LabelText = "Day 1:";
+    public void addEventsForDay() {
         value = ChoiceEvent.getValue();
-        ConfirmEvent.getScene().getWindow().hide();
+        LabelText += value + ", ";
+        LabelLast.setText(LabelText);
+        counter++;
+        if (counter > countOfDayEvents) {
+            JOptionPane.showMessageDialog(null, "It's more than your schedule plan... But you can choose more if you wish.");
+        }
+    }
+    public void addDays() {
+        Day++;
+        counter = 0;
+        if (Day <= tripCharacteristics.getTime()) {
+            value = "Day " + Day + ":";
+            LabelText += "\n" + value;
+            LabelLast.setText(LabelText);
+            increaseProgressBar();
+        } else {
+            LabelText += "\n" + "Your trip is ready!";
+            LabelLast.setText(LabelText);
+            saveText();
+        }
     }
 
-    public void addDataToTable() {
-
+    public void clearDaySchedule() {
+        int lastChar = LabelText.length() - 1;
+        char j = LabelText.charAt(lastChar);
+        while(j != ':') {
+            j = LabelText.charAt(--lastChar);
+        }
+        LabelText = LabelText.substring(0, lastChar + 1);
+        LabelLast.setText(LabelText);
+    }
+    public void clearSchedule() {
+        LabelText = "Day 1:";
+        counter = 0;
+        Day = 1;
+        LabelLast.setText(LabelText);
+    }
+    public void saveText() {
+        try {
+            FileWriter writer = new FileWriter("file.txt");
+            writer.write(LabelText);
+            writer.close();
+            System.out.println("Text saved to file successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while saving the text to file.");
+            e.printStackTrace();
+        }
     }
 }

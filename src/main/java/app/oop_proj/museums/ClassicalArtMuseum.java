@@ -1,8 +1,9 @@
 package app.oop_proj.museums;
 
 import app.oop_proj.Entertainments;
+import javafx.scene.control.Label;
 
-public class ClassicalArtMuseum extends Entertainments {
+public class ClassicalArtMuseum extends Entertainments implements Museums{
     String[] array = {"Kunsthistorisches Museum Wien" , "Albertina Museum" , "Leopold Museum" ,
         "Belvedere Palace Museum" , "MAK - Museum of Applied Arts" + "Kunsthalle Wien" ,
         "Austrian Gallery Belvedere" , "MUMOK - Museum of Modern Art" , "Mozarthaus Vienna" ,
@@ -46,5 +47,13 @@ public class ClassicalArtMuseum extends Entertainments {
 
     public String[] getArray() {
         return array;
+    }
+
+
+    @Override
+    public void readRules(Label label) {
+        MuseumCenter center = new MuseumCenter();
+        center.addSpecialRule("(Special-rule-Classical-Museum)\n");
+        label.setText(center.getGeneralMuseumRules());
     }
 }

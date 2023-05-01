@@ -1,8 +1,10 @@
 package app.oop_proj.restourants;
 
 import app.oop_proj.Entertainments;
+import app.oop_proj.museums.Museums;
+import javafx.scene.control.Label;
 
-public class FamilyRestourant extends Entertainments {
+public class FamilyRestourant extends Entertainments implements Restaurants{
     String[] array = {"Figlmüller Wollzeile" , "Gasthaus Reinthaler" , "Gasthaus Pöschl" , "Fischerbräu" , "Schnattl" ,
             "Wienerwald" , "Gmoakeller" , "Schweizerhaus" , "Beograd" , "Salm Bräu" , "Griechenbeisl" , "Zum Alten Fassl" ,
             "Gasthaus Stefanie" , "Rathauskeller" , "Plachutta Hietzing" , "Wirtshaus zum Nepomuk" , "Meixner's Gastwirtschaft" , "Gasthaus Schilling" ,
@@ -42,6 +44,16 @@ public class FamilyRestourant extends Entertainments {
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
+    }
+
+    @Override
+    public void checkMenu(Label label) {
+
+    }
+
+    @Override
+    public void checkCousinType(Label label) {
+
     }
 }
 
