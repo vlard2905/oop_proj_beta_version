@@ -1,6 +1,6 @@
 package app.oop_proj.museums;
 
-import app.oop_proj.Entertainments;
+import app.oop_proj.general_logic.Entertainments;
 import javafx.scene.control.Label;
 
 public class HistoricalMuseum extends Entertainments implements Museums{
@@ -17,12 +17,10 @@ public class HistoricalMuseum extends Entertainments implements Museums{
     public void setFactor_P() {
         super.setFactor_P(true);
     }
-
     @Override
     public void setFactor_C() {
         super.setFactor_C(false);
     }
-
     @Override
     public void setFactor_D() {
         super.setFactor_D(false);
@@ -34,12 +32,10 @@ public class HistoricalMuseum extends Entertainments implements Museums{
     public void setFactor_A() {
         super.setFactor_A(true);
     }
-
     @Override
     public void setFactor_L() {
         super.setFactor_L(false);
     }
-
     @Override
     public void readRules(Label label) {
         MuseumCenter center = new MuseumCenter();

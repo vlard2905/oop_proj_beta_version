@@ -1,7 +1,5 @@
 package app.oop_proj.museums;
 
-import app.oop_proj.Entertainments;
-
 import java.util.ArrayList;
 import java.util.List;
 

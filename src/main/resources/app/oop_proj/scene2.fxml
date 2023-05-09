@@ -2,14 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DialogPane?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TreeView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -20,7 +17,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="In.at">
             <items>
-              <MenuItem mnemonicParsing="false" text="Info." />
+              <MenuItem mnemonicParsing="false" onAction="#readInformation" text="Info." />
+                  <MenuItem mnemonicParsing="false" onAction="#exitTheProgramInMenu" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Trip">
@@ -39,29 +37,7 @@
       <VBox prefHeight="190.0" prefWidth="164.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="48.0" prefWidth="164.0" />
-            <DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="164.0">
-                <header>
-                  <AnchorPane fx:id="DetailsOfUsingEditDialog" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
-                     <children>
-                        <Label prefHeight="38.0" prefWidth="163.0" text="You can read additional information below." textAlignment="CENTER" wrapText="true" />
-                     </children></AnchorPane>
-                </header>
-                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="26.0" prefWidth="480.0" />
-                </content>
-                <expandableContent>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-                </expandableContent>
-            </DialogPane>
             <Button fx:id="AddNewUserButton" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="41.0" prefWidth="143.0" text="Add members">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="EditCurrentCompanyButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" text="Edit current company">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -76,14 +52,6 @@
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
-            </Button>
-            <Button fx:id="BackButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="144.0" text="Back">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
             </Button>
          </children>
       </VBox>

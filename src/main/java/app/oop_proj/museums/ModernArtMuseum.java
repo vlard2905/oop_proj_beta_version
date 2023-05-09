@@ -1,6 +1,6 @@
 package app.oop_proj.museums;
 
-import app.oop_proj.Entertainments;
+import app.oop_proj.general_logic.Entertainments;
 import javafx.scene.control.Label;
 
 public class ModernArtMuseum extends Entertainments implements Museums{

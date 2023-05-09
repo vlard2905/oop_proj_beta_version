@@ -1,7 +1,8 @@
 package app.oop_proj.controllers;
 
 import app.oop_proj.ApplicationInAt;
-import app.oop_proj.City;
+import app.oop_proj.general_logic.City;
+import app.oop_proj.general_logic.MenuBarInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,11 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.*;
 
-public class ControllerCityChooser implements Serializable {
+/**
+ * Class for choosing city.
+ * @see ControllerCityChooser
+ */
+public class ControllerCityChooser implements Serializable, MenuBarInterface {
     @Serial
     private static final long serialVersionUID = -3694130527841881838L;
     Stage stage;
@@ -56,7 +61,13 @@ public class ControllerCityChooser implements Serializable {
             stage.show();
     }
 
+    @Override
+    public void readInformation() {
+        MenuBarInterface.super.readInformation();
+    }
+
+    @Override
     public void exitTheProgramInMenu() {
-        System.exit(0);
+        MenuBarInterface.super.exitTheProgramInMenu();
     }
 }

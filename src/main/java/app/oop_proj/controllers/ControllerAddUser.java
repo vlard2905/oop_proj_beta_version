@@ -7,7 +7,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.oop_proj.ApplicationInAt;
+import app.oop_proj.general_logic.MenuBarInterface;
 import app.oop_proj.User;
+import app.oop_proj.custom_exceptions.TooManyVariables;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,60 +19,48 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javax.swing.*;
 
-public class ControllerAddUser implements Initializable{
+/**
+ * For creating user we will make operation in this class.
+ * @see ControllerAddUser
+ */
 
+public class ControllerAddUser implements Initializable, MenuBarInterface{
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Button AddUserButton;
-
     @FXML
     private Spinner<Integer> AgeSpinner;
-
     @FXML
     private CheckBox AllergyCheckBox;
-
     @FXML
     private CheckBox ChildrenCheckBox;
-
     @FXML
     private CheckBox DisabilitiesCheckBox;
-
     @FXML
     private RadioButton FemaleRadioBox;
-
     @FXML
     private CheckBox LGBTCheckBox;
-
     @FXML
     private RadioButton MaleRadioBox;
-
     @FXML
     private TextField NameString;
-
     @FXML
     private RadioButton NonRadioBox;
-
     @FXML
     private Button CountButton;
     @FXML
     private Button ButtonGoToECC;
-
     @FXML
     private TextField CountField;
-
-
     @FXML
     private CheckBox PetsCheckBox;
-    int countOfUsers = 0, counter = 0;
-
+    private int countOfUsers = 0, counter = 0;
     public ControllerAddUser() throws IOException {
-    }
 
+    }
     @FXML
     void initialize() {
         assert AddUserButton != null : "fx:id=\"AddUserButton\" was not injected: check your FXML file 'scene3.fxml'.";
@@ -87,15 +77,38 @@ public class ControllerAddUser implements Initializable{
 
     }
 
-    public void setCountOfUsers() {
-        this.countOfUsers = Integer.parseInt(CountField.getText());
-        CountField.setText(String.valueOf(countOfUsers));
-        CountField.setEditable(false);
-        CountButton.setDisable(true);
+    /**
+     * Function for getting count of users for making array.
+     * @throws TooManyVariables //custom exception appears if something goes wrong with adding user..
+     */
+    public void setCountOfUsers() throws TooManyVariables {
+        try {
+            this.countOfUsers = Integer.parseInt(CountField.getText());
+            CountField.setText(String.valueOf(countOfUsers));
+            CountField.setEditable(false);
+            CountButton.setDisable(true);
+        } catch (Exception e) {
+            throw new TooManyVariables();
+        }
+    }
+    @Override
+    public void readInformation() {
+        MenuBarInterface.super.readInformation();
     }
 
-    FileOutputStream fos = new FileOutputStream("UserDATA.bin");
-    ObjectOutputStream oos = new ObjectOutputStream(fos);
+    @Override
+    public void exitTheProgramInMenu() {
+        MenuBarInterface.super.exitTheProgramInMenu();
+    }
+
+    private FileOutputStream fos = new FileOutputStream("UserDATA.bin");
+    private ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+    /**
+     * Filling the new user object with factors.
+     * @param event clickOnEvent.
+     * @throws IOException Runtime.
+     */
     public void clickOnAddButton(ActionEvent event) throws IOException {
         if(countOfUsers == 0) {
             JOptionPane.showMessageDialog(null, "Please, enter count of members in right corner.");

@@ -9,5 +9,5 @@ public abstract class WaterEntertainBridge implements Water_Entertainments {
         this.waterEntertainment = waterEntertainment;
     }
 
-    public abstract void setSchedule();
+    public abstract String getSchedule();
 }

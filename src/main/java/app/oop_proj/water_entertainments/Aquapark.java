@@ -1,8 +1,6 @@
 package app.oop_proj.water_entertainments;
 
-import app.oop_proj.Entertainments;
-import app.oop_proj.museums.Museums;
-import javafx.scene.control.Label;
+import app.oop_proj.general_logic.Entertainments;
 
 public class Aquapark extends Entertainments implements Water_Entertainments{
     String[] array = {"Therme Wien" , "Happyland" , "Kaiserbründl" ,
@@ -42,8 +40,8 @@ public class Aquapark extends Entertainments implements Water_Entertainments{
     }
 
     @Override
-    public void getSchedule(Label label) {
-
+    public String getSchedule() {
+        return "...";
     }
 }
 

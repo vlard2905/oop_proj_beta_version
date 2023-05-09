@@ -10,4 +10,8 @@ module app.oop_proj {
     opens app.oop_proj.museums to javafx.fxml;
     exports app.oop_proj.controllers;
     opens app.oop_proj.controllers to javafx.fxml;
+    exports app.oop_proj.custom_exceptions;
+    opens app.oop_proj.custom_exceptions to javafx.fxml;
+    exports app.oop_proj.general_logic;
+    opens app.oop_proj.general_logic to javafx.fxml;
 }

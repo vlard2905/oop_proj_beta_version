@@ -15,12 +15,12 @@ public class StandardRestaurantAgency extends RestaurantDecorator{
         return "(Native-cousin)";
     }
     @Override
-    public void checkMenu(Label label) {
-        label.setText(getStandardMenu());
+    public String checkMenu() {
+        return "...";
     }
 
     @Override
-    public void checkCousinType(Label label) {
-        label.setText(getStandardCousin());
+    public String checkCousinType() {
+        return "...";
     }
 }

@@ -1,8 +1,6 @@
 package app.oop_proj.restourants;
 
-import app.oop_proj.Entertainments;
-import app.oop_proj.museums.Museums;
-import javafx.scene.control.Label;
+import app.oop_proj.general_logic.Entertainments;
 
 public class DeluxRestourant extends Entertainments implements Restaurants{
     String[] array = {"Steirereck" ,
@@ -48,13 +46,17 @@ public class DeluxRestourant extends Entertainments implements Restaurants{
     }
 
     @Override
-    public void checkMenu(Label label) {
-
+    public String checkMenu() {
+        Restaurants obj1 = null;
+        RestaurantDecorator obj = new RestaurantDecorator(new StandardRestaurantAgency(obj1));
+        return obj.checkMenu();
     }
 
     @Override
-    public void checkCousinType(Label label) {
-
+    public String checkCousinType() {
+        Restaurants obj1 = null;
+        RestaurantDecorator obj = new RestaurantDecorator(new StandardRestaurantAgency(obj1));
+        return obj.checkMenu();
     }
 }
 

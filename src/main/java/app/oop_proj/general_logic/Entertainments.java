@@ -1,17 +1,17 @@
-package app.oop_proj;
+package app.oop_proj.general_logic;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class Entertainments {
+public abstract class Entertainments implements Place {
     protected ArrayList<String> Names = new ArrayList<>();
-    int priceOfEntering;
-    boolean petsFactor;
-    boolean childrenFactor;
-    boolean disabilitiesFactor;
-    boolean riskOfAllergy;
-    boolean LGBTQ_factor;
+    protected int priceOfEntering;
+    protected boolean petsFactor;
+    protected boolean childrenFactor;
+    protected boolean disabilitiesFactor;
+    protected boolean riskOfAllergy;
+    protected boolean LGBTQ_factor;
 
     public void setPriceOfEntering(int priceOfEntering) {
         this.priceOfEntering = priceOfEntering;
@@ -71,4 +71,9 @@ public abstract class Entertainments {
     public abstract void setFactor_D();
     public abstract void setFactor_A();
     public abstract void setFactor_L();
+
+    @Override
+    public String getInfo() {
+        return "...";
+    }
 }

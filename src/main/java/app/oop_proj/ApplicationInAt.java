@@ -5,43 +5,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
-/*public class ApplicationInAt extends javafx.application.Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationInAt.class.getResource("scene1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        launch();
-    }
-}*/
 import javafx.concurrent.Task;
 
+/**
+ * @author Chesnykov Vladyslav
+ */
 public class ApplicationInAt extends javafx.application.Application {
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ApplicationInAt.class.getResource("scene1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setScene(scene);
         stage.show();
-
         // Create and execute a new task on a separate thread
         Task<Void> task = new Task<>() {
             @Override
-            protected Void call() throws Exception {
-                //here can be another task...
+            protected Void call() {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("Now 2nd thread is working...");
+                }
                 return null;
             }
         };
         new Thread(task).start();
     }
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) {
         launch();
     }
 }

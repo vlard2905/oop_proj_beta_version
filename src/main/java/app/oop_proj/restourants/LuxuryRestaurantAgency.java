@@ -21,12 +21,12 @@ public class LuxuryRestaurantAgency extends RestaurantDecorator{
     }
 
     @Override
-    public void checkMenu(Label label) {
-        label.setText(getLuxuryMenu());
+    public String checkMenu() {
+        return "...";
     }
 
     @Override
-    public void checkCousinType(Label label) {
-        label.setText(getLuxuryCousin());
+    public String checkCousinType() {
+        return "...";
     }
 }

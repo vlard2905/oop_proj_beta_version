@@ -1,4 +1,4 @@
-package app.oop_proj;
+package app.oop_proj.general_logic;
 
 import java.io.Serial;
 import java.io.Serializable;

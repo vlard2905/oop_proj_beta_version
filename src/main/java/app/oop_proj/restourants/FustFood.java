@@ -1,8 +1,6 @@
 package app.oop_proj.restourants;
 
-import app.oop_proj.Entertainments;
-import app.oop_proj.museums.Museums;
-import javafx.scene.control.Label;
+import app.oop_proj.general_logic.Entertainments;
 
 public class FustFood extends Entertainments implements Restaurants{
     String[] array = {"McDonald's" , "Burger King" , "KFC" , "Subway" , "Five Guys" , "Johnny's Burger Company" , "Jack the Ripperl" ,
@@ -45,13 +43,13 @@ public class FustFood extends Entertainments implements Restaurants{
     }
 
     @Override
-    public void checkMenu(Label label) {
-
+    public String checkMenu() {
+        return "...";
     }
 
     @Override
-    public void checkCousinType(Label label) {
-
+    public String checkCousinType() {
+        return "...";
     }
 }
 

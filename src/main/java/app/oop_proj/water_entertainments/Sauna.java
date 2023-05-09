@@ -1,7 +1,6 @@
 package app.oop_proj.water_entertainments;
-import app.oop_proj.Entertainments;
-import app.oop_proj.museums.Museums;
-import javafx.scene.control.Label;
+import app.oop_proj.general_logic.Entertainments;
+
 public class Sauna extends Entertainments implements Water_Entertainments{
     String[] array = {"Thermen- & Vitalhotel Bad Tatzmannsdorf" , "Asia Spa Leoben" , "Therme Loipersdorf" ,
             "Thermengolfhotel Stoiser" , "Falkensteiner Balance Resort Stegersbach" , "SPA Resort Styria" ,
@@ -41,7 +40,7 @@ public class Sauna extends Entertainments implements Water_Entertainments{
         super.setFactor_L(true);
     }
     @Override
-    public void getSchedule(Label label) {
-
+    public String getSchedule() {
+        return "...";
     }
 }

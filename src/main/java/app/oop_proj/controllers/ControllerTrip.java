@@ -1,7 +1,8 @@
 package app.oop_proj.controllers;
 
 import app.oop_proj.ApplicationInAt;
-import app.oop_proj.Trip;
+import app.oop_proj.general_logic.MenuBarInterface;
+import app.oop_proj.general_logic.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,48 +10,46 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.DataFormat;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
-public class ControllerTrip implements Initializable {
-    LocalDate date1, date2;
+/**
+ * Class for constructing your trip, filling it with specialties of company.
+ * @see ControllerTrip
+ */
+public class ControllerTrip implements Initializable, MenuBarInterface {
+    @Override
+    public void readInformation() {
+        MenuBarInterface.super.readInformation();
+    }
+
+    @Override
+    public void exitTheProgramInMenu() {
+        MenuBarInterface.super.exitTheProgramInMenu();
+    }
+    private LocalDate date1, date2;
     @FXML
     private RadioButton ActiveRadioBox;
     @FXML
     private Spinner<Integer> BudgetSpinner;
     @FXML
-    private Button CreateScheduleButton;
-    @FXML
     private DatePicker FinishDatePicker;
-    @FXML
-    private Button FamilyPatButton;
     @FXML
     private DatePicker StartDatePicker;
     @FXML
     private RadioButton PassiveRadioBox;
-    @FXML
-    private Button RomanticPanButton;
-    @FXML
-    private Button SchoolPatButton;
-    @FXML
-    private ToggleGroup style;
-    FileOutputStream fos = new FileOutputStream("TripDATA.bin");
-    ObjectOutputStream oos = new ObjectOutputStream(fos);
+    private FileOutputStream fos = new FileOutputStream("TripDATA.bin");
+    private ObjectOutputStream oos = new ObjectOutputStream(fos);
 
     public ControllerTrip() throws IOException {
     }
@@ -99,5 +98,4 @@ public class ControllerTrip implements Initializable {
         Duration duration = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay());
         return duration.toDays();
     }
-
 }

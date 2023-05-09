@@ -5,7 +5,7 @@ The degree of fulfillment of the task, the application of object-oriented mechan
 
 ***
 
-## Other criteria include: (11 points need)
+## Other criteria include: (7 points need - 28 max.) (10 provided)
 
 *  ### The use of *design patterns*: (3 points)
 *Other than the Singleton design pattern - each implemented design pattern counts as meeting one additional criterion, but the implementation of all design patterns is assessed at the maximum level of meeting three additional criteria.*
@@ -17,7 +17,7 @@ The degree of fulfillment of the task, the application of object-oriented mechan
 
 *  ### Exception handling via *custom exceptions* (1 point)
 *One custom exception is enough, but it must actually be thrown and handled.*
-* [Too many veriables exception.](C:\prog\oop_proj\src\main\java\app\oop_proj\controllers\TooManyVeriables.java)
+* [Too many veriables exception.](C:\prog\oop_proj\src\main\java\app\oop_proj\custom_exceptions\TooManyVariables.java)
 ---
 
 *  ### Provision of a graphical user interface (2 points)
@@ -26,36 +26,36 @@ The degree of fulfillment of the task, the application of object-oriented mechan
 
 ---
 
-* ### Explicit use of *multithreading*
+* ### Explicit use of [*multithreading*](C:\prog\oop_proj\src\main\java\app\oop_proj\ApplicationInAt.java) (1 point)
 *Starting your own thread directly or via a higher-level API ( Task class , etc.).*
 
 ---
 
-* ### Using *generosity* in custom classes 
+* ### Using *generosity* in custom classes (1 point)
 *Implementing and using a custom generic class (as in the linked list example provided for lecture 5).*
 
 ---
 
-* ### Explicit use of *RTTI*
+* ### Explicit use of *RTTI* (not provided)
 *E.g. to determine the type of an object or create an object of the appropriate type (as in the game with giants and knights when determining the number of creatures).*
 
 ---
  
-* ### Use of nested classes and interfaces 
+* ### Use of nested classes and interfaces (not provided)
 *Only use in application logic counts, not in the GUI, while the interfaces must be their own (one option is in the example of inner classes for lecture 4).*
 
 ---
 
-* ### Use of lambda expressions or references to methods (method references) 
+* ### Use of lambda expressions or references to methods (method references) (not provided)
 *Only use in the application logic is counted, not in the GUI (one possibility is in the example of references to methods and lambda expressions for lecture 4).*
 
 ---
 
-*  ### Use of implicit implementation of methods in interfaces (default method implementation)
+*  ### Use of implicit implementation of methods in interfaces ([default method](C:\prog\oop_proj\src\main\java\app\oop_proj\MenuBarInterface.java) implementation) (1 point)
 
 ---
 
-*  ### Use of aspect-oriented programming (AspectJ)
+*  ### Use of aspect-oriented programming (AspectJ) (not provided)
 
 ---
 

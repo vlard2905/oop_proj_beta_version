@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.oop_proj.controllers.ControllerCityChooser">
    <children>
@@ -22,14 +21,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="In.at">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Info." />
+                    <MenuItem mnemonicParsing="false" onAction="#readInformation" text="Info." />
                         <MenuItem fx:id="MenuBarExit" mnemonicParsing="false" onAction="#exitTheProgramInMenu" text="Exit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Trip">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="Edit company" />
-                    <MenuItem mnemonicParsing="false" text="Check schedule" />
                   </items>
                 </Menu>
               </menus>
@@ -46,7 +39,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                      <children>
-                        <Label text="Choose city to go:" textAlignment="CENTER" textFill="#009e8c">
+                        <Label text="Choose city to go:" textAlignment="CENTER">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
@@ -54,7 +47,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <RadioButton fx:id="RadioVienna" layoutX="260.0" layoutY="20.0" mnemonicParsing="false" text="Vienna" textFill="#009e8c">
+                        <RadioButton fx:id="RadioVienna" layoutX="260.0" layoutY="20.0" mnemonicParsing="false" text="Vienna">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -65,7 +58,7 @@
                               <ToggleGroup fx:id="city" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="RadioGraz" layoutX="410.0" layoutY="20.0" mnemonicParsing="false" text="Graz" textFill="#009e8c" toggleGroup="$city">
+                        <RadioButton fx:id="RadioGraz" layoutX="410.0" layoutY="20.0" mnemonicParsing="false" text="Graz" toggleGroup="$city">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -73,7 +66,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton fx:id="RadioSalzburg" layoutX="468.0" layoutY="20.0" mnemonicParsing="false" text="Salzburg" textFill="#009e8c" toggleGroup="$city">
+                        <RadioButton fx:id="RadioSalzburg" layoutX="468.0" layoutY="20.0" mnemonicParsing="false" text="Salzburg" toggleGroup="$city">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -83,11 +76,11 @@
                         </RadioButton>
                      </children>
                   </HBox>
-                  <Button fx:id="MakeTripButton" cache="true" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="605.0" prefWidth="800.0" text="Lets make your trip!" textFill="#009e8c">
-                     <font>
-                        <Font name="System Bold" size="70.0" />
-                     </font>
-                  </Button>
+                  <Pane prefHeight="614.0" prefWidth="800.0">
+                     <children>
+                        <Button fx:id="MakeTripButton" alignment="CENTER" cache="true" layoutX="484.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="31.0" prefWidth="137.0" text="Lets make your trip!" />
+                     </children>
+                  </Pane>
                </children>
             </VBox>
          </center>

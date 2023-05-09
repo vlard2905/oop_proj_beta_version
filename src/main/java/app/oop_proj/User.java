@@ -3,13 +3,16 @@ package app.oop_proj;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Object of this class will represent all the specialties of user.
+ */
 public class User implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -1107990144380118002L;
-    int ageOfUser;
-    int budgetOfUser;
-    String nameOfUser;
+    private int ageOfUser;
+    private int budgetOfUser;
+    private String nameOfUser;
     public void setMale(boolean male) {
         this.male = male;
     }
@@ -86,14 +89,14 @@ public class User implements Serializable {
         return lgbt;
     }
 
-    boolean male = false;
-    boolean female = false;
-    boolean non_binary = false;
-    boolean allergy = false;
-    boolean pets = false;
-    boolean child = false;
-    boolean disabilities = false;
-    boolean lgbt = false;
+    protected boolean male = false;
+    protected boolean female = false;
+    protected boolean non_binary = false;
+    protected boolean allergy = false;
+    protected boolean pets = false;
+    protected boolean child = false;
+    protected boolean disabilities = false;
+    protected boolean lgbt = false;
     public void setSex(String sex) {
         switch (sex) {
             case "Male" -> this.male = true;

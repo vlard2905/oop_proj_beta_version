@@ -1,8 +1,13 @@
-package app.oop_proj;
+package app.oop_proj.general_logic;
+
+import app.oop_proj.general_logic.City;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Object of this class represents factors of visiting places.
+ */
 public class Trip implements Serializable {
 
     @Serial
@@ -39,10 +44,6 @@ public class Trip implements Serializable {
 
     public double getTime() {
         return time;
-    }
-
-    public int getBudget() {
-        return budget;
     }
 
     public City getCity() {
