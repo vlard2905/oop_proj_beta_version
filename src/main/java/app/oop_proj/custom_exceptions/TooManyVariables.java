@@ -4,7 +4,7 @@ public class TooManyVariables extends Exception { // Custom exception.
     @Serial
     private static final long serialVersionUID = -3121055327488048910L;
     public TooManyVariables() {
-        super("So many varibles...");
+        super("Unknown variable!!");
     }
 }
 
